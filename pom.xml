@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>no.ntnu.idatg2001</groupId>
-    <artifactId>leivestad.mappe2</artifactId>
+    <artifactId>mappe-del-2-hospital-gui-Leivestad</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
