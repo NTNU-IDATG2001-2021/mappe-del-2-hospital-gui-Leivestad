@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="369.0" prefWidth="593.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatg2001.PrimaryController">
+   <children>
+      <SplitPane dividerPositions="0.14984709480122324" orientation="VERTICAL" prefHeight="346.0" prefWidth="553.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="551.0">
+               <children>
+                  <TableView fx:id="TableView" layoutY="-4.0" prefHeight="282.0" prefWidth="577.0" snapToPixel="false">
+                    <columns>
+                      <TableColumn fx:id="firstNameTable" prefWidth="184.0" text="First Name" />
+                      <TableColumn fx:id="lastNameTable" prefWidth="184.0" text="Last Name" />
+                        <TableColumn fx:id="socialSecTable" prefWidth="184.0" text="Social security number" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
