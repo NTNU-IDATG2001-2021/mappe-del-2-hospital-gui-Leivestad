@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatg2001.PrimaryController">
@@ -31,6 +32,37 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <HBox prefHeight="71.0" prefWidth="610.0">
+               <children>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/addPatient.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/deletePatient.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/editPatient.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
             <TableView fx:id="TableView" prefHeight="282.0" prefWidth="577.0" snapToPixel="false">
               <columns>
                 <TableColumn fx:id="firstNameTable" prefWidth="184.0" text="First Name" />
@@ -41,19 +73,5 @@
          </children>
       </VBox>
    </top>
-   <center>
-      <VBox alignment="CENTER" prefHeight="369.0" prefWidth="593.0" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <SplitPane dividerPositions="0.14984709480122324" orientation="VERTICAL" prefHeight="346.0" prefWidth="553.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="551.0" />
-              </items>
-            </SplitPane>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-   </center>
+
 </BorderPane>
