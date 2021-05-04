@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatg2001.PrimaryController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatg2001.AppController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -27,7 +27,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" onAction="#showAboutDialog" text="About" />
                   </items>
                 </Menu>
               </menus>
@@ -63,7 +63,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="TableView" prefHeight="282.0" prefWidth="577.0" snapToPixel="false">
+            <TableView fx:id="patientTableView" prefHeight="282.0" prefWidth="577.0" snapToPixel="false">
               <columns>
                 <TableColumn fx:id="firstNameTable" prefWidth="184.0" text="First Name" />
                 <TableColumn fx:id="lastNameTable" prefWidth="184.0" text="Last Name" />

@@ -11,7 +11,7 @@ public class PatientRegister {
     private final ArrayList<Patient> PatientReg;
 
     /**
-     * Creates an instance of the literature-register.
+     * Creates an instance of the patient register.
      */
     public PatientRegister() {
             this.PatientReg = new ArrayList<>();
@@ -34,5 +34,7 @@ public class PatientRegister {
      public void addPatient(Patient patient) {
             this.PatientReg.add(patient);
         }
+
+
 
 }
