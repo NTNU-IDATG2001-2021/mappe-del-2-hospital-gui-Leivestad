@@ -28,9 +28,7 @@ public class AppController implements Initializable {
      * The Oblist.
      */
     ObservableList<Patient> oblist = FXCollections.observableArrayList();
-    /**
-     * The Oblist.
-     */
+
     private PatientRegister patientRegister;
 
     @FXML
