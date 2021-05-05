@@ -10,6 +10,10 @@ import java.io.IOException;
 
 /**
  * JavaFX App
+ *  *
+ *  * @author Niklas Leivestad
+ *  * based on JavaFX 19 TableView-With-Dialog-Installer-FXML
+ *  *
  */
 public class App extends Application {
 

@@ -1,5 +1,7 @@
 package no.ntnu.idatg2001;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -14,6 +16,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 
 public class AppController implements Initializable {
 
@@ -27,6 +32,9 @@ public class AppController implements Initializable {
      * The Oblist.
      */
     private PatientRegister patientRegister;
+
+    @FXML
+    private VBox rootContainer;
 
     @FXML
     private TableView<Patient> patientTableView;
@@ -64,7 +72,7 @@ public class AppController implements Initializable {
         /**
          * Display the input dialog to get input to create a new Patient.
          * If the user confirms creating a new patient, a new instance
-         * of Patient is created and added to the literature register provided.
+         * of Patient is created and added to the patient register provided.
          *
          * @param actionEvent the event triggering the action
          */
@@ -83,9 +91,9 @@ public class AppController implements Initializable {
         }
 
     /**
-     * Deletes the literature selected in the table. If no literature is
+     * Deletes the patient selected in the table. If no patient is
      * selected, nothing is deleted, and the user is informed that he/she must
-     * select which literature to delete.
+     * select which patient to delete.
      *
      * @param actionEvent the event triggering the action
      */
@@ -120,12 +128,58 @@ public class AppController implements Initializable {
     }
 
     /**
-     * Updates the observable literature register by replacing the entire content
-     * by the current content in the literature register.
-     * Method to be called whenever changes are made to the literature register.
+     * Updates the observable patient register by replacing the entire content
+     * by the current content in the patient register.
+     * Method to be called whenever changes are made to the patient register.
      */
     private void updateOblist() {
         this.oblist.setAll(this.patientRegister.getPatientList());
+    }
+
+
+
+    @FXML
+    void exportToCSV(MouseEvent event) {
+        if (exportSession(rootContainer)){
+            updateOblist();
+        }
+    }
+
+    @FXML
+    void importFromCsv(MouseEvent mouseEvent) throws IOException{
+        if (importSession(rootContainer)){
+            updateOblist();
+        }
+    }
+
+
+
+    public boolean exportSession(VBox rootContainer) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("CSV Files(*.csv)", "*.csv"));
+        File selectedFile = fileChooser.showSaveDialog(rootContainer.getScene().getWindow());
+        if (selectedFile != null && !selectedFile.getName().equals(".csv")){
+            if (!selectedFile.getName().endsWith(".csv")){
+                selectedFile = new File(selectedFile.getAbsolutePath() + ".csv");
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @param rootContainer
+     * @return
+     * @throws IOException
+     */
+    public boolean importSession(VBox rootContainer) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("CSV Files(*.csv)", "*.csv"));
+        File selectedFile = fileChooser.showOpenDialog(rootContainer.getScene().getWindow());
+        if (!selectedFile.getName().endsWith(".csv")) {
+            return false;
+        }
+        return true;
     }
 
         /**

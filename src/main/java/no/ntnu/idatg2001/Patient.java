@@ -3,6 +3,7 @@ package no.ntnu.idatg2001;
  * Patient class for mappedel2 in the hospital assignment
  *
  * @author Niklas Leivestad
+ * based on JavaFX 19 TableView-With-Dialog-Installer-FXML
  *
  * @version 03.05.2021
  *

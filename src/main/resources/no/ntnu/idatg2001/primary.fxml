@@ -6,14 +6,14 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idatg2001.AppController">
    <top>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox fx:id="rootContainer" BorderPane.alignment="CENTER">
          <children>
             <MenuBar prefHeight="25.0" prefWidth="610.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Import from .CSV" />
-                        <MenuItem mnemonicParsing="false" text="Export from .CSV" />
+                    <MenuItem fx:id="importButton" mnemonicParsing="false" onAction="#importFromCsv" text="Import from .CSV" />
+                        <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#exportToCSV" text="Export from .CSV" />
                         <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
@@ -26,7 +26,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#showAboutDialog" text="About" />
+                    <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#showAboutDialog" text="About" />
                   </items>
                 </Menu>
               </menus>

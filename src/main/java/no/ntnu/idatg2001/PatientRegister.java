@@ -39,7 +39,7 @@ public class PatientRegister {
      * Removes the patient provided by the parameter, from the register.
      * Returns <code>true</code> is remove was successful.
      *
-     * @param patient the literature object to remove
+     * @param patient the patient object to remove
      * @return <code>true</code> is remove was successful
      */
     public boolean remove(Patient patient) {
