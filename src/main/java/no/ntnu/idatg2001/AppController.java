@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -81,8 +82,42 @@ public class AppController implements Initializable {
             }
         }
 
+    /**
+     * Deletes the literature selected in the table. If no literature is
+     * selected, nothing is deleted, and the user is informed that he/she must
+     * select which literature to delete.
+     *
+     * @param actionEvent the event triggering the action
+     */
+    @FXML
+    public void deletePatient(ActionEvent actionEvent) {
+        Patient selectedPatient =
+                this.patientTableView.getSelectionModel().getSelectedItem();
 
+            if (showDeleteConfirmationDialog()) {
+                this.patientRegister.remove(selectedPatient);
+                this.updateOblist();
+            }
 
+    }
+
+    /**
+     * Edit the selected item.
+     *
+     * @param actionEvent the event triggering the action
+     */
+    public void editPatient(ActionEvent actionEvent) {
+        Patient selectedPatient =
+                this.patientTableView.getSelectionModel().getSelectedItem();
+
+            if (selectedPatient instanceof Patient) {
+                PatientDetailsDialog patientDialog = new PatientDetailsDialog(selectedPatient, true);
+                patientDialog.showAndWait();
+
+                this.updateOblist();
+            }
+
+    }
 
     /**
      * Updates the observable literature register by replacing the entire content
@@ -102,6 +137,32 @@ public class AppController implements Initializable {
             this.patientRegister.addPatient(new Patient("Nora", "Toriet", "281178 36524", "Nuclear cold","Fast Legen" ));
             this.patientRegister.addPatient(new Patient("Ove", "Ralt", "091045 35632", "The plague", "Kari Traad"));
         }
+
+    // -----------------------------------------------------------
+    //    DIALOGS
+    // -----------------------------------------------------------
+
+    /**
+     * Displays a delete confirmation dialog. If the user confirms the delete,
+     * <code>true</code> is returned.
+     *
+     * @return <code>true</code> if the user confirms the delete
+     */
+    private boolean showDeleteConfirmationDialog() {
+        boolean deleteConfirmed = false;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete confirmation");
+        alert.setHeaderText("Delete confirmation");
+        alert.setContentText("Are you sure you want to delete this patient?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent()) {
+            deleteConfirmed = (result.get() == ButtonType.OK);
+        }
+        return deleteConfirmed;
+    }
 
     /**
      * Displays alert, an informative dialog about the application.

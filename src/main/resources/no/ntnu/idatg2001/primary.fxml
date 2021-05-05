@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -20,9 +19,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add new patient" />
-                        <MenuItem mnemonicParsing="false" text="Edit selected patient" />
-                        <MenuItem mnemonicParsing="false" text="Remove selected patient" />
+                    <MenuItem fx:id="addMenu" mnemonicParsing="false" onAction="#addPatient" text="Add new patient" />
+                        <MenuItem fx:id="editMenu" mnemonicParsing="false" onAction="#editPatient" text="Edit selected patient" />
+                        <MenuItem fx:id="deleteMenu" mnemonicParsing="false" onAction="#deletePatient" text="Remove selected patient" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -34,27 +33,27 @@
             </MenuBar>
             <HBox prefHeight="71.0" prefWidth="610.0">
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addPatient">
                      <graphic>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="addIcon" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#addPatient" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/addPatient.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deletePatient">
                      <graphic>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="deleteIcon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/deletePatient.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="editButton" mnemonicParsing="false" onAction="#editPatient">
                      <graphic>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="editIcon" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#editPatient" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/editPatient.png" />
                            </image>
