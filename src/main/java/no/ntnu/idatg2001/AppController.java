@@ -1,7 +1,7 @@
 package no.ntnu.idatg2001;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -36,14 +36,6 @@ public class AppController implements Initializable {
             lastNameTable,
             socialSecTable;
 
-
-
-    @FXML
-    private TableView<Patient> patientTableView;
-
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Create the business logic by creating an instance of
@@ -67,6 +59,40 @@ public class AppController implements Initializable {
         this.patientTableView.setItems(this.oblist);
 
     }
+
+        /**
+         * Display the input dialog to get input to create a new Patient.
+         * If the user confirms creating a new patient, a new instance
+         * of Patient is created and added to the literature register provided.
+         *
+         * @param actionEvent the event triggering the action
+         */
+        @FXML
+        public void addPatient(ActionEvent actionEvent) {
+
+            PatientDetailsDialog patientDetailsDialogDialog = new PatientDetailsDialog();
+
+            Optional<Patient> result = patientDetailsDialogDialog.showAndWait();
+
+            if (result.isPresent()) {
+                Patient newPatient = result.get();
+                this.patientRegister.addPatient(newPatient);
+                this.updateOblist();
+            }
+        }
+
+
+
+
+    /**
+     * Updates the observable literature register by replacing the entire content
+     * by the current content in the literature register.
+     * Method to be called whenever changes are made to the literature register.
+     */
+    private void updateOblist() {
+        this.oblist.setAll(this.patientRegister.getPatientList());
+    }
+
         /**
          * Fills the register with dummy data.
          */
@@ -78,8 +104,7 @@ public class AppController implements Initializable {
         }
 
     /**
-     * Displays an example of an alert (info) dialog. In this case an "about"
-     * type of dialog.
+     * Displays alert, an informative dialog about the application.
      */
     @FXML
     public void showAboutDialog(ActionEvent actionEvent) {

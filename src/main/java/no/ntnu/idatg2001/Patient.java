@@ -10,7 +10,7 @@ package no.ntnu.idatg2001;
 public class Patient {
     String firstName;
     String lastName;
-    String socialSecurityNumber;
+    String socialSecurityNumber; // = String.format("%d-%d");
     String diagnosis;
     String generalPractitioner;
 
@@ -34,15 +34,48 @@ public class Patient {
     }
 
 
+    /**
+     * Getters
+     */
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
+    public String getLastName() { return lastName; }
 
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public String getGeneralPractitioner() {
+        return generalPractitioner;
+    }
+
+
+    /**
+     * Setters
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
+        this.socialSecurityNumber = socialSecurityNumber;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public void setGeneralPractitioner(String generalPractitioner) {
+        this.generalPractitioner = generalPractitioner;
     }
 }
